@@ -46,7 +46,7 @@
         android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="아이디를 입력하세요"
-        android:inputType="text"
+        android:inputType="number"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -203,7 +203,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
-        android:onClick="select_all"
+        android:onClick="search_all"
         android:text="전체조회"
         app:layout_constraintBottom_toBottomOf="@+id/insertBtn"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -214,7 +214,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginBottom="4dp"
-        android:onClick="delete"
         android:text="삭제"
         app:layout_constraintBottom_toTopOf="@+id/insertBtn"
         app:layout_constraintStart_toStartOf="@+id/register_account" />
