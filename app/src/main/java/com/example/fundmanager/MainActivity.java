@@ -16,7 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 class DBHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "FundManager.db";
+    private static final String DATABASE_NAME = "FUNDMANAGER";
 
     private static final int DATABASE_VERSION = 3;
 
@@ -29,7 +29,7 @@ class DBHelper extends SQLiteOpenHelper {
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS contacts");
+        db.execSQL("DROP TABLE IF EXISTS user");
         onCreate(db);
     }
 }
@@ -65,12 +65,14 @@ public class MainActivity extends AppCompatActivity {
             // MenuActivity로 이동
 
             if("0".equals(loginUser)){
-                Intent intentAdmin = new Intent(getApplicationContext(), ShowUserActivity.class);
+                Intent intentAdmin = new Intent(getApplicationContext(), ManageMenuActivity.class);
                 startActivity(intentAdmin);
+                finish();
             } else {
                 Intent intentUser = new Intent(getApplicationContext(), MenuActivity.class);
                 intentUser.putExtra("userId", res.getString(0));
                 startActivity(intentUser);
+                finish();
             }
         } else {
             Toast.makeText(getApplicationContext(), "로그인에 실패했습니다,\n 다시 시도해주세요", Toast.LENGTH_SHORT).show();

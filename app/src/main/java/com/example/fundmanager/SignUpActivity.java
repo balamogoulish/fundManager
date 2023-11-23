@@ -35,9 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         edit_pw = (EditText) findViewById(R.id.register_pw);
         edit_name = (EditText) findViewById(R.id.register_name);
         edit_account = (EditText) findViewById(R.id.register_account);
-        //sedit_result = (TextView) findViewById(R.id.textView);
 
-        Intent intent = getIntent();
     }
 
     public void insert(View target) {
@@ -53,6 +51,8 @@ public class SignUpActivity extends AppCompatActivity {
             edit_pw.setText("");
             edit_name.setText("");
             edit_account.setText("");
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
         } catch (SQLException e) {
             Toast.makeText(getApplicationContext(), "Failed to insert data. Please try again", Toast.LENGTH_SHORT).show();
             // You can log the exception for further analysis if needed

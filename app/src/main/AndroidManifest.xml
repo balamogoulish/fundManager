@@ -18,6 +18,8 @@
         <activity android:name=".InOutActivity"/>
         <activity android:name=".MyInfoActivity"/>
         <activity android:name=".MenuActivity"/>
+        <activity android:name=".ShowFundActivity"/>
+        <activity android:name=".ManageMenuActivity"/>
         <activity android:name=".ShowUserActivity"/>
         <activity
             android:name=".MainActivity"

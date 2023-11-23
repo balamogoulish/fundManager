@@ -8,24 +8,19 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MyInfoActivity extends AppCompatActivity {
+public class ShowFundActivity extends AppCompatActivity {
     DBHelper helper;
     SQLiteDatabase db;
-    EditText updateName, updateAccount;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        String userId = intent.getStringExtra("userId");
 
-        setContentView(R.layout.activity_myinfo);
+        setContentView(R.layout.activity_managefund);
         helper = new DBHelper(this);
         try {
             db = helper.getWritableDatabase();
         } catch (SQLiteException ex) {
             db = helper.getReadableDatabase();
         }
-        updateName = (EditText) findViewById(R.id.infonameEdit);
-        updateAccount = (EditText) findViewById(R.id.infoaccountEdit);
     }
 }

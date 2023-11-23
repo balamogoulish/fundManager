@@ -20,9 +20,8 @@ public class ShowUserActivity extends AppCompatActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
 
-        setContentView(R.layout.activity_manage);
+        setContentView(R.layout.activity_manageuser);
         helper = new DBHelper(this);
         try {
             db = helper.getWritableDatabase();
