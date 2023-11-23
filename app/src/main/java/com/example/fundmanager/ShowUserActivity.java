@@ -41,12 +41,13 @@ public class ShowUserActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), ""+cursor.getCount() ,
                 Toast.LENGTH_SHORT).show();
 
-        String s="Id            Pw            Name            Account \r\n";
+        String s="Id      userId         Pw         Name        Account \r\n";
         while (cursor.moveToNext()) {
             s += cursor.getString(0) + "    ";
             s += cursor.getString(1) + "    ";
             s += cursor.getString(2) + "    ";
-            s += cursor.getString(3) + "    \r\n";
+            s += cursor.getString(3) + "    ";
+            s += cursor.getString(4) + "    \r\n";
         }
         result.setText(s);
         cursor.close();
@@ -55,12 +56,13 @@ public class ShowUserActivity extends AppCompatActivity {
         Cursor cursor;
         cursor = db.rawQuery("SELECT * FROM user", null);
 
-        String s="Id            Pw            Name            Account \r\n";
+        String s="Id      userId         Pw         Name        Account \r\n";
         while (cursor.moveToNext()) {
             s += cursor.getString(0) + "    ";
             s += cursor.getString(1) + "    ";
             s += cursor.getString(2) + "    ";
-            s += cursor.getString(3) + "    \r\n";
+            s += cursor.getString(3) + "    ";
+            s += cursor.getString(4) + "    \r\n";
         }
         result.setText(s);
         cursor.close();

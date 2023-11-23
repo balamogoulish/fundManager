@@ -45,7 +45,7 @@ public class SignUpActivity extends AppCompatActivity {
         String name = edit_name.getText().toString();
         String account = edit_account.getText().toString();
         try {
-            db.execSQL("INSERT INTO user VALUES ('" + id + "', '" + pw + "', '" + name + "', '" + account + "');");
+            db.execSQL("INSERT INTO user VALUES (null, '" + id + "', '" + pw + "', '" + name + "', '" + account + "');");
             Toast.makeText(getApplicationContext(), "Added successfully", Toast.LENGTH_SHORT).show();
             edit_id.setText("");
             edit_pw.setText("");
