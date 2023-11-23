@@ -25,6 +25,11 @@ public class ManageMenuActivity extends AppCompatActivity {
             db = helper.getReadableDatabase();
         }
     }
+    public void LogOutManager(View target){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
     public void showFund(View target){
         Intent intent = new Intent(getApplicationContext(), ShowFundActivity.class);
         startActivity(intent);

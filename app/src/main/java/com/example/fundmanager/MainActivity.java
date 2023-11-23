@@ -77,19 +77,18 @@ public class MainActivity extends AppCompatActivity {
     public void search(View target) {
         String id = edit_id.getText().toString();
         String pw = edit_pw.getText().toString();
-        Cursor res = db.rawQuery("SELECT name FROM user WHERE userId='" + id + "' AND password='" + pw + "';", null);
+        Cursor res = db.rawQuery("SELECT name, _id FROM user WHERE userId='" + id + "' AND password='" + pw + "';", null);
         if (res!=null && res.moveToFirst()) { // Cursor에서 데이터가 있을 경우
-            String loginUser = res.getString(0);
             Toast.makeText(getApplicationContext(), "로그인에 성공했습니다! ", Toast.LENGTH_SHORT).show();
             // MenuActivity로 이동
 
-            if("ADMIN".equals(loginUser)){
+            if("ADMIN".equals(res.getString(0))){
                 Intent intentAdmin = new Intent(getApplicationContext(), ManageMenuActivity.class);
                 startActivity(intentAdmin);
                 finish();
             } else {
                 Intent intentUser = new Intent(getApplicationContext(), MenuActivity.class);
-                intentUser.putExtra("userId", res.getString(0));
+                intentUser.putExtra("_id", res.getString(1));
                 startActivity(intentUser);
                 finish();
             }

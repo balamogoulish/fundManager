@@ -10,11 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public class InOutActivity extends AppCompatActivity {
     DBHelper helper;
     SQLiteDatabase db;
+    String _id;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        String userId = intent.getStringExtra("userId");
+        _id = intent.getStringExtra("_id");
 
         setContentView(R.layout.activity_inout);
         helper = new DBHelper(this);

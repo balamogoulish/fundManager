@@ -12,11 +12,12 @@ public class MyInfoActivity extends AppCompatActivity {
     DBHelper helper;
     SQLiteDatabase db;
     EditText updateName, updateAccount;
+    String _id;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        String userId = intent.getStringExtra("userId");
+        _id = intent.getStringExtra("_id");
 
         setContentView(R.layout.activity_myinfo);
         helper = new DBHelper(this);
