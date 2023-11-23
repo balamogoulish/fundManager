@@ -15,6 +15,10 @@
         android:theme="@style/Theme.FundManager"
         tools:targetApi="31">
         <activity android:name=".SignUpActivity"/>
+        <activity android:name=".InOutActivity"/>
+        <activity android:name=".MyInfoActivity"/>
+        <activity android:name=".MenuActivity"/>
+        <activity android:name=".ShowUserActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -35,7 +35,6 @@ class DBHelper extends SQLiteOpenHelper {
 }
 
 public class MainActivity extends AppCompatActivity {
-    public static final int sub = 1001;
     DBHelper helper;
     SQLiteDatabase db;
     EditText edit_id, edit_pw;
@@ -59,10 +58,20 @@ public class MainActivity extends AppCompatActivity {
     public void search(View target) {
         String id = edit_id.getText().toString();
         String pw = edit_pw.getText().toString();
-        Cursor res = db.rawQuery("SELECT _Id FROM user WHERE _Id='" + id + "' AND password='" + pw + "';", null);
+        Cursor res = db.rawQuery("SELECT _id FROM user WHERE _id='" + id + "' AND password='" + pw + "';", null);
         if (res!=null && res.moveToFirst()) { // Cursor에서 데이터가 있을 경우
-            Toast.makeText(getApplicationContext(), "로그인에 성공했습니다!", Toast.LENGTH_SHORT).show();
+            String loginUser = res.getString(0);
+            Toast.makeText(getApplicationContext(), "로그인에 성공했습니다! ", Toast.LENGTH_SHORT).show();
             // MenuActivity로 이동
+
+            if("0".equals(loginUser)){
+                Intent intentAdmin = new Intent(getApplicationContext(), ShowUserActivity.class);
+                startActivity(intentAdmin);
+            } else {
+                Intent intentUser = new Intent(getApplicationContext(), MenuActivity.class);
+                intentUser.putExtra("userId", res.getString(0));
+                startActivity(intentUser);
+            }
         } else {
             Toast.makeText(getApplicationContext(), "로그인에 실패했습니다,\n 다시 시도해주세요", Toast.LENGTH_SHORT).show();
         }
